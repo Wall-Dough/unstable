@@ -42,10 +42,6 @@ func kick_left():
 func kick_right():
 	change_sprite($body/collision/sprite/kick_right)
 
-func jump():
-	$body.jump()
-	change_sprite($body/collision/sprite/jump)
-
 func none_pressed():
 	if combat_mode:
 		if Input.is_action_pressed("punch_left"):
@@ -72,10 +68,10 @@ func _process(delta):
 		direction += 1
 	$body.set_direction(direction)
 	if Input.is_action_just_pressed("jump"):
-		rest_sprite = $body/collision/sprite/jump
-		jump()
+		$body.jump()
 	if $body.is_jumping():
 		rest_sprite = $body/collision/sprite/jump
+		rest()
 	else:
 		rest_sprite = $body/collision/sprite/rest
 		if none_pressed():
