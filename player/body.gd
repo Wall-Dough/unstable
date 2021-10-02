@@ -8,6 +8,7 @@ var direction = 0
 var speed = 300
 var jump_speed = 600
 var jumped = false
+var jumping = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,12 @@ func set_direction(new_dir):
 		$collision.transform.x.x = direction
 
 func jump():
+	if jumping:
+		return
 	jumped = true
+
+func is_jumping():
+	return jumping
 	
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
@@ -29,9 +35,14 @@ func _integrate_forces(s):
 	if jumped:
 		lv.y = -jump_speed
 		jumped = false
+		jumping = true
 	s.set_linear_velocity(lv)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_body_body_entered(body):
+	if body.get_name() == "floor_body":
+		jumping = false

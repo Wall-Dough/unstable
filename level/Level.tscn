@@ -19,10 +19,10 @@ position = Vector2( 682.919, 478.908 )
 
 [node name="floor" type="Node2D" parent="."]
 
-[node name="body" type="StaticBody2D" parent="floor"]
+[node name="floor_body" type="StaticBody2D" parent="floor"]
 position = Vector2( 527.301, 606.629 )
 
-[node name="collision" type="CollisionShape2D" parent="floor/body"]
+[node name="collision" type="CollisionShape2D" parent="floor/floor_body"]
 shape = SubResource( 1 )
 
 [node name="wall_left" type="Node2D" parent="."]
