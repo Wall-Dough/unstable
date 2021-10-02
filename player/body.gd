@@ -6,7 +6,7 @@ extends RigidBody2D
 # var b = "text"
 var direction = 0
 var speed = 300
-var jump_speed = 300
+var jump_speed = 600
 var jumped = false
 
 # Called when the node enters the scene tree for the first time.
