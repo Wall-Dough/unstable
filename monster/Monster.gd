@@ -8,6 +8,7 @@ var active_sprite
 var rage_level = 0
 var max_rage = 100
 var rage_speed = 20
+var effectiveness = 30
 var enraged = false
 
 
@@ -38,21 +39,21 @@ func rest():
 func feed():
 	if enraged:
 		return
-	rage_level -= 10
+	rage_level -= effectiveness
 	if rage_level < 0:
 		rage_level = 0
 
 func pet():
 	if enraged:
 		return
-	rage_level -= 10
+	rage_level -= effectiveness
 	if rage_level < 0:
 		rage_level = 0
 
 func punch():
 	if !enraged:
 		return
-	rage_level -= 10
+	rage_level -= effectiveness / 3
 	if rage_level <= 0:
 		rage_level = 0
 		rest()
@@ -60,7 +61,7 @@ func punch():
 func kick():
 	if !enraged:
 		return
-	rage_level -= 10
+	rage_level -= effectiveness / 3
 	if rage_level <= 0:
 		rage_level = 0
 		rest()

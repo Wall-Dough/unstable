@@ -8,6 +8,8 @@ var rest_sprite
 var active_sprite
 var combat_mode = false
 var near_monster = false
+var cooldown_time = 1
+var cooldown_left = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +24,8 @@ func get_monster():
 
 func set_combat_mode(combat_mode):
 	self.combat_mode = combat_mode
+	if combat_mode:
+		cooldown_left = 0
 
 func change_sprite(sprite):
 	active_sprite.hide()
@@ -35,14 +39,20 @@ func walk():
 	change_sprite($body.get_walk_sprite())
 
 func pet():
+	if cooldown_left > 0:
+		return
 	change_sprite($body/collision/sprite/pet)
 	get_root().play_pet()
 	get_monster().pet()
+	cooldown_left = cooldown_time
 
 func give():
+	if cooldown_left > 0:
+		return
 	change_sprite($body/collision/sprite/give)
 	get_root().play_feed()
 	get_monster().feed()
+	cooldown_left = cooldown_time
 
 func punch_left():
 	change_sprite($body/collision/sprite/punch_left)
@@ -88,6 +98,10 @@ func none_pressed():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if cooldown_left > 0:
+		cooldown_left -= delta
+		if cooldown_left <= 0:
+			cooldown_left = 0
 	var direction = 0
 	if Input.is_action_pressed("move_left"):
 		direction -= 1
