@@ -4,12 +4,14 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var rest_sprite
 var active_sprite
 var combat_mode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	active_sprite = $body/collision/sprite/rest
+	rest_sprite = $body/collision/sprite/rest
+	active_sprite = rest_sprite
 
 func change_sprite(sprite):
 	active_sprite.hide()
@@ -17,7 +19,7 @@ func change_sprite(sprite):
 	active_sprite.show()
 
 func rest():
-	change_sprite($body/collision/sprite/rest)
+	change_sprite(rest_sprite)
 
 func pet():
 	change_sprite($body/collision/sprite/pet)
@@ -39,6 +41,7 @@ func kick_right():
 
 func jump():
 	$body.jump()
+	change_sprite($body/collision/sprite/jump)
 
 func none_pressed():
 	if combat_mode:
@@ -66,6 +69,7 @@ func _process(delta):
 		direction += 1
 	$body.set_direction(direction)
 	if Input.is_action_just_pressed("jump"):
+		rest_sprite = $body/collision/sprite/jump
 		jump()
 	if combat_mode:
 		if Input.is_action_just_pressed("punch_left"):
