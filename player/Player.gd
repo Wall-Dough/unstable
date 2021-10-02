@@ -89,6 +89,8 @@ func none_pressed():
 		if Input.is_action_pressed("kick_right"):
 			return false
 	else:
+		if cooldown_left > 0:
+			return false
 		if near_monster:
 			if Input.is_action_pressed("give"):
 				return false
