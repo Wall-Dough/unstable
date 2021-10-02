@@ -21,6 +21,9 @@ func change_sprite(sprite):
 func rest():
 	change_sprite(rest_sprite)
 
+func walk():
+	change_sprite($body.get_walk_sprite())
+
 func pet():
 	change_sprite($body/collision/sprite/pet)
 
@@ -76,7 +79,10 @@ func _process(delta):
 	else:
 		rest_sprite = $body/collision/sprite/rest
 		if none_pressed():
-			rest()
+			if direction != 0:
+				walk()
+			else:
+				rest()
 	if combat_mode:
 		if Input.is_action_just_pressed("punch_left"):
 			punch_left()
@@ -86,12 +92,8 @@ func _process(delta):
 			kick_left()
 		elif Input.is_action_just_pressed("kick_right"):
 			kick_right()
-		elif none_pressed():
-			rest()
 	else:
 		if Input.is_action_just_pressed("give"):
 			give()
 		elif Input.is_action_just_pressed("pet"):
 			pet()
-		elif none_pressed():
-			rest()
