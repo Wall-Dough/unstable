@@ -8,7 +8,7 @@ extents = Vector2( 169.265, 10 )
 [node name="Monster" type="Node2D"]
 
 [node name="body" type="RigidBody2D" parent="."]
-position = Vector2( 219.343, 202.196 )
+position = Vector2( 42.659, 55.5364 )
 mode = 2
 
 [node name="collision" type="CollisionShape2D" parent="body"]
