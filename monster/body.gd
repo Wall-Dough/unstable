@@ -29,8 +29,5 @@ func set_moving(moving):
 
 func _on_body_body_entered(body):
 	if body.get_name() == "wall_body":
-		if direction == -1:
-			direction = 1
-		else:
-			direction = -1
+		direction = -direction
 		$collision.transform.x.x = -direction
