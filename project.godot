@@ -62,6 +62,11 @@ move_right={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player physics"
+2d_physics/layer_2="Monster physics"
+
 [physics]
 
 common/enable_pause_aware_picking=true

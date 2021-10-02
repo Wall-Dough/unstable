@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://monster/Monster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/Level.gd" type="Script" id=3]
+[ext_resource path="res://sounds/Sounds.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1000, 50 )
@@ -49,3 +50,5 @@ collision_mask = 3
 
 [node name="collision" type="CollisionShape2D" parent="wall_right/body"]
 shape = SubResource( 2 )
+
+[node name="Sounds" parent="." instance=ExtResource( 4 )]

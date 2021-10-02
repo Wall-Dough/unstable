@@ -16,6 +16,18 @@ func get_player():
 func get_monster():
 	return $Monster
 
+func play_jump():
+	$Sounds/jump.play()
+
+func play_hit_hurt():
+	$Sounds/hit_hurt.play()
+
+func play_feed():
+	$Sounds/feed.play()
+
+func play_pet():
+	$Sounds/pet.play()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

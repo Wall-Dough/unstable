@@ -35,6 +35,7 @@ func jump():
 	if jumping:
 		return
 	jumped = true
+	get_tree().get_current_scene().play_jump()
 
 func is_jumping():
 	return jumping

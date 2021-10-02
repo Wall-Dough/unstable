@@ -14,6 +14,9 @@ func _ready():
 	rest_sprite = $body/collision/sprite/rest
 	active_sprite = rest_sprite
 
+func get_root():
+	return get_tree().get_current_scene()
+
 func change_sprite(sprite):
 	active_sprite.hide()
 	active_sprite = sprite
@@ -27,21 +30,27 @@ func walk():
 
 func pet():
 	change_sprite($body/collision/sprite/pet)
+	get_root().play_pet()
 
 func give():
 	change_sprite($body/collision/sprite/give)
+	get_root().play_feed()
 
 func punch_left():
 	change_sprite($body/collision/sprite/punch_left)
+	get_root().play_hit_hurt()
 
 func punch_right():
 	change_sprite($body/collision/sprite/punch_right)
+	get_root().play_hit_hurt()
 
 func kick_left():
 	change_sprite($body/collision/sprite/kick_left)
+	get_root().play_hit_hurt()
 
 func kick_right():
 	change_sprite($body/collision/sprite/kick_right)
+	get_root().play_hit_hurt()
 
 func none_pressed():
 	if combat_mode:
