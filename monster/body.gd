@@ -28,7 +28,6 @@ func set_moving(moving):
 #	pass
 
 func _on_body_body_entered(body):
-	print(body.get_name())
 	if body.get_name() == "wall_body":
 		if direction == -1:
 			direction = 1
