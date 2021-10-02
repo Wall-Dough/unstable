@@ -71,7 +71,8 @@ func _process(delta):
 		$body.jump()
 	if $body.is_jumping():
 		rest_sprite = $body/collision/sprite/jump
-		rest()
+		if none_pressed():
+			rest()
 	else:
 		rest_sprite = $body/collision/sprite/rest
 		if none_pressed():
