@@ -1,11 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://images/textures.png" type="Texture" id=1]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 169.265, 10 )
+
 [node name="Monster" type="Node2D"]
 
-[node name="sprite" type="Polygon2D" parent="."]
-position = Vector2( 133.398, 132.095 )
+[node name="body" type="RigidBody2D" parent="."]
+position = Vector2( 219.343, 202.196 )
+mode = 2
+
+[node name="collision" type="CollisionShape2D" parent="body"]
+position = Vector2( 0.645103, -0.231987 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="Polygon2D" parent="body/collision"]
+position = Vector2( -95.8784, -82.0146 )
 offset = Vector2( -277.593, -132.095 )
 texture = ExtResource( 1 )
 polygon = PoolVector2Array( 177.08, 21.892, 158.08, 45.892, 150.08, 69.892, 152.08, 101.892, 163.08, 135.892, 186.08, 143.892, 197.08, 171.892, 192.08, 213.892, 213.08, 229.892, 233.08, 241.892, 328.08, 246.892, 460.08, 235.892, 506.08, 227.892, 545.08, 214.892, 556.08, 185.892, 540.08, 147.892, 521.08, 131.892, 471.08, 148.892, 328.08, 72.892, 216.08, 3.892, 186.08, 13.892 )

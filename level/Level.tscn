@@ -12,8 +12,10 @@ extents = Vector2( 40, 800 )
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 17.1688, 313.722 )
 
 [node name="Monster" parent="." instance=ExtResource( 1 )]
+position = Vector2( 501.018, 319.965 )
 
 [node name="floor" type="Node2D" parent="."]
 
