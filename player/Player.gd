@@ -17,6 +17,9 @@ func _ready():
 func get_root():
 	return get_tree().get_current_scene()
 
+func get_monster():
+	return get_root().get_monster()
+
 func set_combat_mode(combat_mode):
 	self.combat_mode = combat_mode
 
@@ -34,26 +37,36 @@ func walk():
 func pet():
 	change_sprite($body/collision/sprite/pet)
 	get_root().play_pet()
+	get_monster().pet()
 
 func give():
 	change_sprite($body/collision/sprite/give)
 	get_root().play_feed()
+	get_monster().feed()
 
 func punch_left():
 	change_sprite($body/collision/sprite/punch_left)
-	get_root().play_hit_hurt()
+	if near_monster:
+		get_root().play_hit_hurt()
+		get_monster().punch()
 
 func punch_right():
 	change_sprite($body/collision/sprite/punch_right)
-	get_root().play_hit_hurt()
+	if near_monster:
+		get_root().play_hit_hurt()
+		get_monster().punch()
 
 func kick_left():
 	change_sprite($body/collision/sprite/kick_left)
-	get_root().play_hit_hurt()
+	if near_monster:
+		get_root().play_hit_hurt()
+		get_monster().kick()
 
 func kick_right():
 	change_sprite($body/collision/sprite/kick_right)
-	get_root().play_hit_hurt()
+	if near_monster:
+		get_root().play_hit_hurt()
+		get_monster().kick()
 
 func none_pressed():
 	if combat_mode:
