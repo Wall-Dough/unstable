@@ -1,0 +1,159 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/droid-sans/DroidSans.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://controls/Controls.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 41
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Q key" type="Label" parent="."]
+margin_left = 43.5853
+margin_top = -1.03772
+margin_right = 83.5853
+margin_bottom = 47.9623
+custom_fonts/font = SubResource( 1 )
+text = "Q"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W key" type="Label" parent="."]
+margin_left = 148.399
+margin_top = 2.07567
+margin_right = 188.399
+margin_bottom = 51.0757
+custom_fonts/font = SubResource( 1 )
+text = "W"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A key" type="Label" parent="."]
+margin_left = 46.7892
+margin_top = 61.23
+margin_right = 86.7892
+margin_bottom = 110.23
+custom_fonts/font = SubResource( 1 )
+text = "A"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S key" type="Label" parent="."]
+margin_left = 155.664
+margin_top = 60.1922
+margin_right = 195.664
+margin_bottom = 109.192
+custom_fonts/font = SubResource( 1 )
+text = "S"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="non_combat" type="Control" parent="."]
+margin_left = 14.5292
+margin_top = 60.1923
+margin_right = 54.5292
+margin_bottom = 100.192
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pet" type="Label" parent="non_combat"]
+margin_left = 31.9002
+margin_top = 45.9205
+margin_right = 71.9002
+margin_bottom = 64.9205
+custom_fonts/font = SubResource( 2 )
+text = "PET"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="feed" type="Label" parent="non_combat"]
+margin_left = 134.114
+margin_top = 44.9001
+margin_right = 174.114
+margin_bottom = 63.9001
+custom_fonts/font = SubResource( 2 )
+text = "feed"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combat" type="Control" parent="."]
+visible = false
+margin_left = 14.5292
+margin_top = 60.1923
+margin_right = 54.5292
+margin_bottom = 100.192
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_punch" type="Label" parent="combat"]
+margin_left = 2.07559
+margin_top = -12.4536
+margin_right = 42.0756
+margin_bottom = 6.54643
+custom_fonts/font = SubResource( 2 )
+text = "left punch"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_punch" type="Label" parent="combat"]
+margin_left = 101.704
+margin_top = -12.4536
+margin_right = 202.704
+margin_bottom = 6.54643
+custom_fonts/font = SubResource( 2 )
+text = "right punch"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_kick" type="Label" parent="combat"]
+margin_left = 7.5074
+margin_top = 44.8684
+margin_right = 76.5074
+margin_bottom = 63.8684
+custom_fonts/font = SubResource( 2 )
+text = "left kick"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_kick" type="Label" parent="combat"]
+margin_left = 112.679
+margin_top = 44.6252
+margin_right = 193.679
+margin_bottom = 63.6252
+custom_fonts/font = SubResource( 2 )
+text = "right kick"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

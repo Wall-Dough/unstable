@@ -30,6 +30,10 @@ func play_pet():
 
 func set_combat_mode(combat_mode):
 	$Player.set_combat_mode(combat_mode)
+	if combat_mode:
+		$Controls.show_combat()
+	else:
+		$Controls.show_non_combat()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
