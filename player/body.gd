@@ -15,6 +15,8 @@ func set_direction(new_dir):
 	if direction == new_dir:
 		return
 	direction = new_dir
+	if direction != 0:
+		$collision.transform.x.x = direction
 	
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
