@@ -25,11 +25,13 @@ func change_sprite(sprite):
 
 func enrage():
 	enraged = true
+	$body.set_moving(true)
 	get_root().set_combat_mode(true)
 	change_sprite($body/collision/sprite/enraged)
 
 func rest():
 	enraged = false
+	$body.set_moving(false)
 	get_root().set_combat_mode(false)
 	change_sprite($body/collision/sprite/rest)
 

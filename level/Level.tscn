@@ -32,23 +32,23 @@ shape = SubResource( 1 )
 
 [node name="wall_left" type="Node2D" parent="."]
 
-[node name="body" type="StaticBody2D" parent="wall_left"]
+[node name="wall_body" type="StaticBody2D" parent="wall_left"]
 position = Vector2( -40.0149, 332.856 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="collision" type="CollisionShape2D" parent="wall_left/body"]
+[node name="collision" type="CollisionShape2D" parent="wall_left/wall_body"]
 shape = SubResource( 2 )
 
 [node name="wall_right" type="Node2D" parent="."]
 position = Vector2( 1104.02, -1.40218 )
 
-[node name="body" type="StaticBody2D" parent="wall_right"]
+[node name="wall_body" type="StaticBody2D" parent="wall_right"]
 position = Vector2( -40.0149, 332.856 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="collision" type="CollisionShape2D" parent="wall_right/body"]
+[node name="collision" type="CollisionShape2D" parent="wall_right/wall_body"]
 shape = SubResource( 2 )
 
 [node name="Sounds" parent="." instance=ExtResource( 4 )]
