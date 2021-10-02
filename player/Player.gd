@@ -7,6 +7,7 @@ extends Node2D
 var rest_sprite
 var active_sprite
 var combat_mode = false
+var near_monster = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,10 +54,11 @@ func none_pressed():
 		if Input.is_action_pressed("kick_right"):
 			return false
 	else:
-		if Input.is_action_pressed("give"):
-			return false
-		if Input.is_action_pressed("pet"):
-			return false
+		if near_monster:
+			if Input.is_action_pressed("give"):
+				return false
+			if Input.is_action_pressed("pet"):
+				return false
 	return true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -90,7 +92,18 @@ func _process(delta):
 		elif Input.is_action_just_pressed("kick_right"):
 			kick_right()
 	else:
-		if Input.is_action_just_pressed("give"):
-			give()
-		elif Input.is_action_just_pressed("pet"):
-			pet()
+		if near_monster:
+			if Input.is_action_just_pressed("give"):
+				give()
+			elif Input.is_action_just_pressed("pet"):
+				pet()
+
+
+func _on_player_detect_area_entered(area):
+	if area.get_name() == "monster_detect":
+		near_monster = true
+
+
+func _on_player_detect_area_exited(area):
+	if area.get_name() == "monster_detect":
+		near_monster = false
