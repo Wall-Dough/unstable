@@ -13,6 +13,9 @@ var enraged = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	active_sprite = $body/collision/sprite/rest
+	
+func get_root():
+	return get_tree().get_current_scene()
 
 func change_sprite(sprite):
 	active_sprite.hide()
@@ -21,6 +24,7 @@ func change_sprite(sprite):
 
 func enrage():
 	enraged = true
+	get_root().set_combat_mode(true)
 	change_sprite($body/collision/sprite/enraged)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

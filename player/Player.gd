@@ -17,6 +17,9 @@ func _ready():
 func get_root():
 	return get_tree().get_current_scene()
 
+func set_combat_mode(combat_mode):
+	self.combat_mode = combat_mode
+
 func change_sprite(sprite):
 	active_sprite.hide()
 	active_sprite = sprite

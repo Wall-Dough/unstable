@@ -28,6 +28,9 @@ func play_feed():
 func play_pet():
 	$Sounds/pet.play()
 
+func set_combat_mode(combat_mode):
+	$Player.set_combat_mode(combat_mode)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
