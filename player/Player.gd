@@ -75,7 +75,8 @@ func _process(delta):
 		rest_sprite = $body/collision/sprite/jump
 	else:
 		rest_sprite = $body/collision/sprite/rest
-		rest()
+		if none_pressed():
+			rest()
 	if combat_mode:
 		if Input.is_action_just_pressed("punch_left"):
 			punch_left()
