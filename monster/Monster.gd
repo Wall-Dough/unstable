@@ -50,18 +50,24 @@ func change_sprite(sprite):
 	active_sprite.show()
 
 func enrage():
+	if asleep:
+		return
 	enraged = true
 	$body.set_moving(true)
 	get_root().set_combat_mode(true)
 	change_sprite($body/collision/sprite/enraged)
 
 func rest():
+	if asleep:
+		return
 	enraged = false
 	$body.set_moving(false)
 	get_root().set_combat_mode(false)
 	change_sprite($body/collision/sprite/rest)
 
 func sleep():
+	if enraged or asleep:
+		return
 	asleep = true
 	change_sprite($body/collision/sprite/asleep)
 	emit_signal("bed_time")
@@ -116,5 +122,7 @@ func _process(delta):
 
 
 func _on_time_time_change(time):
+	if enraged or asleep:
+		return
 	if time >= bed_time:
 		sleep()
