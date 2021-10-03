@@ -6,7 +6,7 @@ extends Node2D
 # var b = "text"
 export(int, 23) var start_hour = 17
 export(int, 59) var start_minute = 0
-export(int, 23) var bed_time_hour = 22
+export(int, 47) var bed_time_hour = 22
 export(int, 59) var bed_time_minute = 0
 export(int, 30) var pet_effect = 30
 export(int, 30) var feed_effect = 30
