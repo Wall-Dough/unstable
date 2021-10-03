@@ -12,6 +12,7 @@ export(PackedScene) var next_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	$time.set_time(start_hour, start_minute)
 	$Monster.set_bed_time(bed_time_hour, bed_time_minute)
 	pass # Replace with function body.

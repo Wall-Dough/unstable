@@ -1,20 +1,44 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://background/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/textures.png" type="Texture" id=3]
+[ext_resource path="res://victory/victory_text.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [node name="Victory" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-margin_left = 189.639
-margin_top = 145.451
-margin_right = 864.639
-margin_bottom = 227.451
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="victory_text" type="Label" parent="."]
+margin_left = 184.115
+margin_top = 136.245
+margin_right = 859.115
+margin_bottom = 218.245
+rect_pivot_offset = Vector2( 329.984, 0.142136 )
 custom_fonts/font = SubResource( 1 )
-text = "CONGRATULATIONS"
+text = "nighty night"
+align = 1
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="victory" type="Polygon2D" parent="."]
+position = Vector2( 257.503, 423.198 )
+offset = Vector2( -662.2, -355.318 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 610.169, 348.305, 602.542, 343.22, 576.271, 272.881, 588.136, 263.559, 603.39, 275.424, 619.492, 299.153, 618.644, 267.797, 632.203, 248.305, 651.695, 242.373, 672.034, 245.763, 683.051, 260.169, 688.983, 283.898, 709.322, 255.085, 719.492, 252.542, 726.271, 263.559, 724.576, 303.39, 706.78, 341.525, 700.847, 395.763, 704.237, 443.22, 698.305, 462.712, 708.475, 472.034, 701.695, 484.746, 681.356, 484.746, 646.61, 486.441, 641.525, 480.508, 641.525, 466.102, 631.356, 398.305 )
+uv = PoolVector2Array( 610.169, 348.305, 602.542, 343.22, 576.271, 272.881, 588.136, 263.559, 603.39, 275.424, 619.492, 299.153, 618.644, 267.797, 632.203, 248.305, 651.695, 242.373, 672.034, 245.763, 683.051, 260.169, 688.983, 283.898, 709.322, 255.085, 719.492, 252.542, 726.271, 263.559, 724.576, 303.39, 706.78, 341.525, 700.847, 395.763, 704.237, 443.22, 698.305, 462.712, 708.475, 472.034, 701.695, 484.746, 681.356, 484.746, 646.61, 486.441, 641.525, 480.508, 641.525, 466.102, 631.356, 398.305 )
+
+[node name="asleep" type="Polygon2D" parent="."]
+position = Vector2( 608.827, 460.769 )
+offset = Vector2( -1107.83, -124.274 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 926.237, 49.4942, 911.054, 69.3895, 918.384, 88.7613, 929.378, 98.1853, 946.656, 122.793, 970.74, 121.222, 1006.87, 163.107, 1046.66, 177.243, 1077.55, 223.316, 1125.71, 228.028, 1332.8, 209.641, 1387.25, 194.981, 1398.25, 177.704, 1391.44, 137.913, 1375.73, 115.924, 1351.65, 110.688, 1317.1, 132.154, 1186.77, 55.8199, 1136.51, 35.9246, 1079.96, 31.7361, 1018.71, 21.7885, 976.824, 40.6367, 964.782, 13.9351, 923.944, 25.4534 )
+uv = PoolVector2Array( 926.237, 49.4942, 911.054, 69.3895, 918.384, 88.7613, 929.378, 98.1853, 946.656, 122.793, 970.74, 121.222, 1006.87, 163.107, 1046.66, 177.243, 1077.55, 223.316, 1125.71, 228.028, 1332.8, 209.641, 1387.25, 194.981, 1398.25, 177.704, 1391.44, 137.913, 1375.73, 115.924, 1351.65, 110.688, 1317.1, 132.154, 1186.77, 55.8199, 1136.51, 35.9246, 1079.96, 31.7361, 1018.71, 21.7885, 976.824, 40.6367, 964.782, 13.9351, 923.944, 25.4534 )
