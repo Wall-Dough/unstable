@@ -108,6 +108,9 @@ func perform(action):
 		rest()
 	calc_decay(action)
 
+func can_perform(action):
+	return effects[action]["cur"] > 0
+
 func feed():
 	if enraged or asleep:
 		return

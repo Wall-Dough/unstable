@@ -49,6 +49,8 @@ func walk():
 func pet():
 	if cooldown_left > 0 or victory:
 		return
+	if !get_monster().can_perform("pet"):
+		return
 	change_sprite($body/collision/sprite/pet)
 	get_root().play_pet()
 	get_monster().pet()
@@ -56,6 +58,8 @@ func pet():
 
 func give():
 	if cooldown_left > 0 or victory:
+		return
+	if !get_monster().can_perform("feed"):
 		return
 	change_sprite($body/collision/sprite/give)
 	get_root().play_feed()
