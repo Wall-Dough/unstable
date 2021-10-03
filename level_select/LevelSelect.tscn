@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level_select/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://level/Level1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/Level2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/QuickLevel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://background/Background.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 88
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -14,9 +22,21 @@ __meta__ = {
 }
 levels = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
 
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
 [node name="level_list" type="ItemList" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 924.0
+margin_bottom = 550.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 296.917
+margin_top = 31.1681
+margin_right = 732.917
+margin_bottom = 134.168
+custom_fonts/font = SubResource( 1 )
+text = "UNSTABLE"

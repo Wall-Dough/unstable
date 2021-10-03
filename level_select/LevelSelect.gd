@@ -65,3 +65,5 @@ func _process(delta):
 		$level_list.select(level_idx[cur_level_idx])
 	elif Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to(levels[cur_level_idx])
+	elif Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
