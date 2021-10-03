@@ -1,15 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://background/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/textures.png" type="Texture" id=3]
 [ext_resource path="res://victory/victory_text.gd" type="Script" id=4]
+[ext_resource path="res://fonts/droid-sans/DroidSans.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
 
 [node name="Victory" type="Node2D"]
 
@@ -42,3 +49,14 @@ offset = Vector2( -1107.83, -124.274 )
 texture = ExtResource( 3 )
 polygon = PoolVector2Array( 926.237, 49.4942, 911.054, 69.3895, 918.384, 88.7613, 929.378, 98.1853, 946.656, 122.793, 970.74, 121.222, 1006.87, 163.107, 1046.66, 177.243, 1077.55, 223.316, 1125.71, 228.028, 1332.8, 209.641, 1387.25, 194.981, 1398.25, 177.704, 1391.44, 137.913, 1375.73, 115.924, 1351.65, 110.688, 1317.1, 132.154, 1186.77, 55.8199, 1136.51, 35.9246, 1079.96, 31.7361, 1018.71, 21.7885, 976.824, 40.6367, 964.782, 13.9351, 923.944, 25.4534 )
 uv = PoolVector2Array( 926.237, 49.4942, 911.054, 69.3895, 918.384, 88.7613, 929.378, 98.1853, 946.656, 122.793, 970.74, 121.222, 1006.87, 163.107, 1046.66, 177.243, 1077.55, 223.316, 1125.71, 228.028, 1332.8, 209.641, 1387.25, 194.981, 1398.25, 177.704, 1391.44, 137.913, 1375.73, 115.924, 1351.65, 110.688, 1317.1, 132.154, 1186.77, 55.8199, 1136.51, 35.9246, 1079.96, 31.7361, 1018.71, 21.7885, 976.824, 40.6367, 964.782, 13.9351, 923.944, 25.4534 )
+
+[node name="continue_text" type="Label" parent="."]
+margin_left = 325.966
+margin_top = 223.321
+margin_right = 723.966
+margin_bottom = 255.321
+custom_fonts/font = SubResource( 2 )
+text = "press enter to select another level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
