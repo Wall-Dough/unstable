@@ -36,3 +36,5 @@ func set_combat_mode(combat_mode):
 	else:
 		$Controls.show_non_combat()
 
+func set_effectivenesses(effects):
+	$Controls.set_effectivenesses(effects)

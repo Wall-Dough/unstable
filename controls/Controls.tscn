@@ -92,6 +92,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="max_effectiveness" type="ColorRect" parent="non_combat/pet"]
+margin_left = -41.7218
+margin_top = -39.123
+margin_right = -31.7218
+margin_bottom = 15.877
+color = Color( 0.658824, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectiveness" type="ColorRect" parent="non_combat/pet/max_effectiveness"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 9.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.18, 0.72, 0.333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="feed" type="Label" parent="non_combat"]
 margin_left = 134.114
 margin_top = 44.9001
@@ -100,6 +121,27 @@ margin_bottom = 63.9001
 custom_fonts/font = SubResource( 2 )
 text = "feed"
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="max_effectiveness" type="ColorRect" parent="non_combat/feed"]
+margin_left = -36.9393
+margin_top = -38.1027
+margin_right = -26.9393
+margin_bottom = 16.8973
+color = Color( 0.658824, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectiveness" type="ColorRect" parent="non_combat/feed/max_effectiveness"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 9.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.180392, 0.721569, 0.333333, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -126,14 +168,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="max_effectiveness" type="ColorRect" parent="combat/left_punch"]
+margin_left = -12.6251
+margin_top = -40.4339
+margin_right = -2.62506
+margin_bottom = 14.5661
+color = Color( 0.658824, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectiveness" type="ColorRect" parent="combat/left_punch/max_effectiveness"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 9.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.180392, 0.721569, 0.333333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="right_punch" type="Label" parent="combat"]
-margin_left = 101.704
-margin_top = -12.4536
-margin_right = 202.704
-margin_bottom = 6.54643
+margin_left = 110.439
+margin_top = -13.1814
+margin_right = 211.439
+margin_bottom = 5.81856
 custom_fonts/font = SubResource( 2 )
 text = "right punch"
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="max_effectiveness" type="ColorRect" parent="combat/right_punch"]
+margin_left = -13.9918
+margin_top = -38.9782
+margin_right = -3.99179
+margin_bottom = 16.0218
+color = Color( 0.658824, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectiveness" type="ColorRect" parent="combat/right_punch/max_effectiveness"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 9.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.180392, 0.721569, 0.333333, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,6 +234,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="max_effectiveness" type="ColorRect" parent="combat/left_kick"]
+margin_left = -18.7847
+margin_top = -38.0709
+margin_right = -8.78473
+margin_bottom = 16.9291
+color = Color( 0.658824, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectiveness" type="ColorRect" parent="combat/left_kick/max_effectiveness"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 9.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.180392, 0.721569, 0.333333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="right_kick" type="Label" parent="combat"]
 margin_left = 112.679
 margin_top = 44.6252
@@ -158,6 +263,27 @@ margin_bottom = 63.6252
 custom_fonts/font = SubResource( 2 )
 text = "right kick"
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="max_effectiveness" type="ColorRect" parent="combat/right_kick"]
+margin_left = -16.9598
+margin_top = -37.8277
+margin_right = -6.95982
+margin_bottom = 17.1723
+color = Color( 0.658824, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectiveness" type="ColorRect" parent="combat/right_kick/max_effectiveness"]
+margin_left = 1.0
+margin_top = 55.0
+margin_right = 9.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.180392, 0.721569, 0.333333, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -13,12 +13,30 @@ var effectiveness = 30
 var enraged = false
 var asleep = false
 var effects = {
-	"feed": effectiveness,
-	"pet": effectiveness,
-	"left_punch": effectiveness,
-	"right_punch": effectiveness,
-	"left_kick": effectiveness,
-	"right_kick": effectiveness,
+	"feed": {
+		"cur": effectiveness,
+		"max": effectiveness,
+	},
+	"pet": {
+		"cur": effectiveness,
+		"max": effectiveness,
+	},
+	"left_punch": {
+		"cur": effectiveness,
+		"max": effectiveness,
+	},
+	"right_punch": {
+		"cur": effectiveness,
+		"max": effectiveness,
+	},
+	"left_kick": {
+		"cur": effectiveness,
+		"max": effectiveness,
+	},
+	"right_kick": {
+		"cur": effectiveness,
+		"max": effectiveness,
+	},
 }
 var growth = 2
 var decay = 5
@@ -33,16 +51,16 @@ func get_root():
 	return get_tree().get_current_scene()
 
 func calc_decay(action):
-	effects[action] -= decay
-	if effects[action] < 0:
-		effects[action] = 0
+	effects[action]["cur"] -= decay
+	if effects[action]["cur"] < 0:
+		effects[action]["cur"] = 0
 	calc_growth()
 
 func calc_growth():
 	for action in effects:
-		effects[action] += growth
-		if effects[action] > effectiveness:
-			effects[action] = effectiveness
+		effects[action]["cur"] += growth
+		if effects[action]["cur"] > effects[action]["max"]:
+			effects[action]["cur"] = effects[action]["max"]
 
 func change_sprite(sprite):
 	active_sprite.hide()
@@ -75,7 +93,7 @@ func sleep():
 func feed():
 	if enraged or asleep:
 		return
-	rage_level -= effects["feed"]
+	rage_level -= effects["feed"]["cur"]
 	if rage_level < 0:
 		rage_level = 0
 	calc_decay("feed")
@@ -83,7 +101,7 @@ func feed():
 func pet():
 	if enraged or asleep:
 		return
-	rage_level -= effects["pet"]
+	rage_level -= effects["pet"]["cur"]
 	if rage_level < 0:
 		rage_level = 0
 	calc_decay("pet")
@@ -119,6 +137,7 @@ func _process(delta):
 	var max_rage_size = $body/max_rage.get_size().x
 	var rage_size = rage_level / max_rage * max_rage_size
 	$body/max_rage/rage_level.rect_size.x = rage_size
+	get_root().set_effectivenesses(effects)
 
 
 func _on_time_time_change(time):
