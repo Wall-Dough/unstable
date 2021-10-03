@@ -14,12 +14,13 @@ var emitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	emit_signal("time_change", floor(time))
 
 func display_time():
 	var fixed_time = int(time) % max_time
 	var am_pm = "AM"
 	var hours = floor(fixed_time / 60)
+	var mil_hours = hours
 	if hours >= 12:
 		am_pm = "PM"
 	if hours == 0:

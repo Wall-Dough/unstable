@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://monster/Monster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://level/time.gd" type="Script" id=7]
 [ext_resource path="res://images/background.png" type="Texture" id=8]
+[ext_resource path="res://level/sky.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1000, 50 )
@@ -30,13 +31,14 @@ script = ExtResource( 3 )
 position = Vector2( 41.9618, 123.325 )
 scale = Vector2( 0.655898, 0.655898 )
 
-[node name="Polygon2D" type="Polygon2D" parent="background"]
+[node name="sky" type="Polygon2D" parent="background"]
 position = Vector2( -175.489, -83.001 )
 scale = Vector2( 0.75, 0.75 )
 color = Color( 0.203922, 0.588235, 1, 1 )
 polygon = PoolVector2Array( 0, 0, 3000, 0, 3000, 3000, 0, 3000 )
+script = ExtResource( 9 )
 
-[node name="overlay" type="Polygon2D" parent="background/Polygon2D"]
+[node name="overlay" type="Polygon2D" parent="background/sky"]
 position = Vector2( -3.1954, -1.84027 )
 scale = Vector2( 0.655898, 0.655898 )
 texture = ExtResource( 8 )
@@ -136,3 +138,4 @@ text = "PM"
 
 [connection signal="bed_time" from="Monster" to="Player" method="_on_Monster_bed_time"]
 [connection signal="time_change" from="time" to="Monster" method="_on_time_time_change"]
+[connection signal="time_change" from="time" to="background/sky" method="_on_time_time_change"]
