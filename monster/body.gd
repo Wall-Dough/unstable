@@ -5,8 +5,10 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 var speed = 300
+var jump_speed = 800
 var direction = -1
 var moving = false
+var can_jump = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +18,9 @@ func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
 	if moving:
 		lv.x = speed * direction
+		if can_jump:
+			lv.y = -jump_speed
+			can_jump = false
 	else:
 		lv.x = 0
 	s.set_linear_velocity(lv)
@@ -31,3 +36,5 @@ func _on_body_body_entered(body):
 	if body.get_name() == "wall_body":
 		direction = -direction
 		$collision.transform.x.x = -direction
+	if body.get_name() == "floor_body":
+		can_jump = true
