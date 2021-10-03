@@ -109,3 +109,5 @@ margin_right = 176.474
 margin_bottom = 55.7622
 custom_fonts/font = SubResource( 3 )
 text = "PM"
+
+[connection signal="time_change" from="time" to="Monster" method="_on_time_time_change"]

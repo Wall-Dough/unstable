@@ -103,3 +103,7 @@ func _process(delta):
 	var max_rage_size = $body/max_rage.get_size().x
 	var rage_size = rage_level / max_rage * max_rage_size
 	$body/max_rage/rage_level.rect_size.x = rage_size
+
+
+func _on_time_time_change(time):
+	print(time)
