@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/textures.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
@@ -12,6 +12,18 @@ extents = Vector2( 29.1643, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 63.3844, 117.06 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 29.6857, 14.1962 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 29.6857, 13.3038 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 29.5075, 14.3747 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 25.0452, 16.1596 )
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 2 )
@@ -127,9 +139,29 @@ uv = PoolVector2Array( 634.148, 562.831, 595.893, 588.334, 592.537, 614.509, 599
 [node name="player_detect" type="Area2D" parent="body"]
 position = Vector2( -10.3932, -109.706 )
 
-[node name="collision" type="CollisionShape2D" parent="body/player_detect"]
+[node name="non_combat" type="CollisionShape2D" parent="body/player_detect"]
 position = Vector2( -3.46436, 4.61919 )
 shape = SubResource( 3 )
+
+[node name="punch_left" type="CollisionShape2D" parent="body/player_detect"]
+position = Vector2( 24.2018, -28.4017 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="punch_right" type="CollisionShape2D" parent="body/player_detect"]
+position = Vector2( 86.6736, -31.9715 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="kick_left" type="CollisionShape2D" parent="body/player_detect"]
+position = Vector2( 47.4056, 28.7155 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="kick_right" type="CollisionShape2D" parent="body/player_detect"]
+position = Vector2( 77.7491, 25.1457 )
+shape = SubResource( 7 )
+disabled = true
 
 [connection signal="body_entered" from="body" to="body" method="_on_body_body_entered"]
 [connection signal="area_entered" from="body/player_detect" to="." method="_on_player_detect_area_entered"]

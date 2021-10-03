@@ -29,6 +29,7 @@ func set_combat_mode(combat_mode):
 	self.combat_mode = combat_mode
 	if combat_mode:
 		cooldown_left = 0
+	$body/player_detect/non_combat.set_disabled(combat_mode)
 
 func change_sprite(sprite):
 	active_sprite.hide()
@@ -37,6 +38,10 @@ func change_sprite(sprite):
 
 func rest():
 	change_sprite(rest_sprite)
+	$body/player_detect/kick_left.set_disabled(true)
+	$body/player_detect/kick_right.set_disabled(true)
+	$body/player_detect/punch_left.set_disabled(true)
+	$body/player_detect/punch_right.set_disabled(true)
 
 func walk():
 	change_sprite($body.get_walk_sprite())
@@ -60,6 +65,7 @@ func give():
 func punch_left():
 	if victory:
 		return
+	$body/player_detect/punch_left.set_disabled(false)
 	change_sprite($body/collision/sprite/punch_left)
 	if near_monster:
 		get_root().play_hit_hurt()
@@ -68,6 +74,7 @@ func punch_left():
 func punch_right():
 	if victory:
 		return
+	$body/player_detect/punch_right.set_disabled(false)
 	change_sprite($body/collision/sprite/punch_right)
 	if near_monster:
 		get_root().play_hit_hurt()
@@ -76,6 +83,7 @@ func punch_right():
 func kick_left():
 	if victory:
 		return
+	$body/player_detect/kick_left.set_disabled(false)
 	change_sprite($body/collision/sprite/kick_left)
 	if near_monster:
 		get_root().play_hit_hurt()
@@ -84,10 +92,8 @@ func kick_left():
 func kick_right():
 	if victory:
 		return
+	$body/player_detect/kick_right.set_disabled(false)
 	change_sprite($body/collision/sprite/kick_right)
-	if near_monster:
-		get_root().play_hit_hurt()
-		get_monster().right_kick()
 
 func none_pressed():
 	if victory:
@@ -161,11 +167,23 @@ func _process(delta):
 			elif Input.is_action_just_pressed("pet"):
 				pet()
 
-
 func _on_player_detect_area_entered(area):
 	if area.get_name() == "monster_detect":
 		near_monster = true
-
+		if combat_mode:
+			if !$body/player_detect/punch_left.is_disabled():
+				get_monster().left_punch()
+				$body/player_detect/punch_left.set_disabled(true)
+			if !$body/player_detect/punch_right.is_disabled():
+				get_monster().right_punch()
+				$body/player_detect/punch_right.set_disabled(true)
+			if !$body/player_detect/kick_left.is_disabled():
+				get_monster().left_kick()
+				$body/player_detect/kick_left.set_disabled(true)
+			if !$body/player_detect/kick_right.is_disabled():
+				get_monster().right_kick()
+				$body/player_detect/kick_right.set_disabled(true)
+			get_root().play_hit_hurt()
 
 func _on_player_detect_area_exited(area):
 	if area.get_name() == "monster_detect":
