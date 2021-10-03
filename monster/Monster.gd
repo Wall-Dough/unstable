@@ -9,9 +9,10 @@ var active_sprite
 var rage_level = 0
 var max_rage = 100
 var rage_speed = 20
-var effectiveness = 30
+var effectiveness = float(30)
 var enraged = false
 var asleep = false
+var atk_factor = 3
 var effects = {
 	"feed": {
 		"cur": effectiveness,
@@ -22,20 +23,20 @@ var effects = {
 		"max": effectiveness,
 	},
 	"left_punch": {
-		"cur": effectiveness,
-		"max": effectiveness,
+		"cur": effectiveness / atk_factor,
+		"max": effectiveness / atk_factor,
 	},
 	"right_punch": {
-		"cur": effectiveness,
-		"max": effectiveness,
+		"cur": effectiveness / atk_factor,
+		"max": effectiveness / atk_factor,
 	},
 	"left_kick": {
-		"cur": effectiveness,
-		"max": effectiveness,
+		"cur": effectiveness / atk_factor,
+		"max": effectiveness / atk_factor,
 	},
 	"right_kick": {
-		"cur": effectiveness,
-		"max": effectiveness,
+		"cur": effectiveness / atk_factor,
+		"max": effectiveness / atk_factor,
 	},
 }
 var growth = 2
@@ -109,7 +110,7 @@ func pet():
 func punch():
 	if !enraged or asleep:
 		return
-	rage_level -= effectiveness / 3
+	rage_level -= effects["left_punch"]["cur"]
 	if rage_level <= 0:
 		rage_level = 0
 		rest()
@@ -118,7 +119,7 @@ func punch():
 func kick():
 	if !enraged or asleep:
 		return
-	rage_level -= effectiveness / 3
+	rage_level -= effects["left_kick"]["cur"]
 	if rage_level <= 0:
 		rage_level = 0
 		rest()
