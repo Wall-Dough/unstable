@@ -33,7 +33,7 @@ func display_time():
 	if hours > 12:
 		hours -= 12
 	var minutes = int(fixed_time) % 60
-	$hours.set_text("%02d" % hours)
+	$hours.set_text("%d" % hours)
 	$minutes.set_text("%02d" % minutes)
 	$am_pm.set_text(am_pm)
 	# Emit signal every quarter hour
