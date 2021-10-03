@@ -10,6 +10,7 @@ var max_rage = 100
 var rage_speed = 20
 var effectiveness = 30
 var enraged = false
+var asleep = false
 var effects = {
 	"feed": effectiveness,
 	"pet": effectiveness,
@@ -20,6 +21,7 @@ var effects = {
 }
 var growth = 2
 var decay = 5
+var bed_time = 22 * 60 # 10 PM
 
 
 # Called when the node enters the scene tree for the first time.
@@ -58,8 +60,12 @@ func rest():
 	get_root().set_combat_mode(false)
 	change_sprite($body/collision/sprite/rest)
 
+func sleep():
+	asleep = true
+	change_sprite($body/collision/sprite/asleep)
+
 func feed():
-	if enraged:
+	if enraged or asleep:
 		return
 	rage_level -= effects["feed"]
 	if rage_level < 0:
@@ -67,7 +73,7 @@ func feed():
 	calc_decay("feed")
 
 func pet():
-	if enraged:
+	if enraged or asleep:
 		return
 	rage_level -= effects["pet"]
 	if rage_level < 0:
@@ -75,7 +81,7 @@ func pet():
 	calc_decay("pet")
 
 func punch():
-	if !enraged:
+	if !enraged or asleep:
 		return
 	rage_level -= effectiveness / 3
 	if rage_level <= 0:
@@ -84,7 +90,7 @@ func punch():
 	calc_decay("left_punch")
 
 func kick():
-	if !enraged:
+	if !enraged or asleep:
 		return
 	rage_level -= effectiveness / 3
 	if rage_level <= 0:
@@ -94,6 +100,8 @@ func kick():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if asleep:
+		return
 	if !enraged:
 		rage_level += delta * rage_speed
 		if rage_level >= max_rage:
@@ -106,4 +114,5 @@ func _process(delta):
 
 
 func _on_time_time_change(time):
-	print(time)
+	if time >= bed_time:
+		sleep()
