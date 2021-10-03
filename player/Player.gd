@@ -131,7 +131,10 @@ func _process(delta):
 		if none_pressed():
 			rest()
 	else:
-		rest_sprite = $body/collision/sprite/rest
+		if victory:
+			rest_sprite = $body/collision/sprite/victory
+		else:
+			rest_sprite = $body/collision/sprite/rest
 		if none_pressed():
 			if direction != 0:
 				walk()
