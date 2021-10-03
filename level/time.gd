@@ -14,6 +14,11 @@ var emitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+func set_time(hour, minute):
+	time = hour * 60
+	time += minute
 	emit_signal("time_change", floor(time))
 
 func display_time():

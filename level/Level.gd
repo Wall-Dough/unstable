@@ -4,11 +4,15 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
-
+export(int, 23) var start_hour = 17
+export(int, 59) var start_minute = 0
+export(int, 23) var bed_time_hour = 22
+export(int, 59) var bed_time_minute = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$time.set_time(start_hour, start_minute)
+	$Monster.set_bed_time(bed_time_hour, bed_time_minute)
 	pass # Replace with function body.
 
 func get_player():

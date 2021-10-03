@@ -47,6 +47,10 @@ var bed_time = 22 * 60 # 10 PM
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	active_sprite = $body/collision/sprite/rest
+
+func set_bed_time(hour, minute):
+	bed_time = hour * 60
+	bed_time += minute
 	
 func get_root():
 	return get_tree().get_current_scene()
