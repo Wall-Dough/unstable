@@ -51,6 +51,10 @@ func _ready():
 func set_bed_time(hour, minute):
 	bed_time = hour * 60
 	bed_time += minute
+
+func set_effect(effect, value):
+	effects[effect]["cur"] = value
+	effects[effect]["max"] = value
 	
 func get_root():
 	return get_tree().get_current_scene()

@@ -8,6 +8,9 @@ export(int, 23) var start_hour = 17
 export(int, 59) var start_minute = 0
 export(int, 23) var bed_time_hour = 22
 export(int, 59) var bed_time_minute = 0
+export(int, 30) var pet_effect = 30
+export(int, 30) var feed_effect = 30
+export(int, 30) var attack_effect = 10
 export(PackedScene) var next_level
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +18,12 @@ func _ready():
 	randomize()
 	$time.set_time(start_hour, start_minute)
 	$Monster.set_bed_time(bed_time_hour, bed_time_minute)
-	pass # Replace with function body.
+	$Monster.set_effect("pet", pet_effect)
+	$Monster.set_effect("feed", feed_effect)
+	$Monster.set_effect("left_punch", attack_effect)
+	$Monster.set_effect("right_punch", attack_effect)
+	$Monster.set_effect("left_kick", attack_effect)
+	$Monster.set_effect("right_kick", attack_effect)
 
 func get_player():
 	return $Player

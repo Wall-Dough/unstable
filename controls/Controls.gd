@@ -26,6 +26,8 @@ func set_effectivenesses(effects):
 		var max_size = max_bar.get_size().y
 		var cur_effect = float(effects[action]["cur"])
 		var max_effect = float(effects[action]["max"])
+		if max_effect == 0:
+			max_effect = 1
 		cur_bar.rect_size.y = cur_effect / max_effect * max_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
