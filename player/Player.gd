@@ -63,7 +63,7 @@ func punch_left():
 	change_sprite($body/collision/sprite/punch_left)
 	if near_monster:
 		get_root().play_hit_hurt()
-		get_monster().punch()
+		get_monster().left_punch()
 
 func punch_right():
 	if victory:
@@ -71,7 +71,7 @@ func punch_right():
 	change_sprite($body/collision/sprite/punch_right)
 	if near_monster:
 		get_root().play_hit_hurt()
-		get_monster().punch()
+		get_monster().right_punch()
 
 func kick_left():
 	if victory:
@@ -79,7 +79,7 @@ func kick_left():
 	change_sprite($body/collision/sprite/kick_left)
 	if near_monster:
 		get_root().play_hit_hurt()
-		get_monster().kick()
+		get_monster().left_kick()
 
 func kick_right():
 	if victory:
@@ -87,7 +87,7 @@ func kick_right():
 	change_sprite($body/collision/sprite/kick_right)
 	if near_monster:
 		get_root().play_hit_hurt()
-		get_monster().kick()
+		get_monster().right_kick()
 
 func none_pressed():
 	if victory:

@@ -91,39 +91,44 @@ func sleep():
 	change_sprite($body/collision/sprite/asleep)
 	emit_signal("bed_time")
 
+func perform(action):
+	if asleep:
+		return
+	rage_level -= effects[action]["cur"]
+	if rage_level < 0:
+		rage_level = 0
+		rest()
+	calc_decay(action)
+
 func feed():
 	if enraged or asleep:
 		return
-	rage_level -= effects["feed"]["cur"]
-	if rage_level < 0:
-		rage_level = 0
-	calc_decay("feed")
+	perform("feed")
 
 func pet():
 	if enraged or asleep:
 		return
-	rage_level -= effects["pet"]["cur"]
-	if rage_level < 0:
-		rage_level = 0
-	calc_decay("pet")
+	perform("pet")
 
-func punch():
+func left_punch():
 	if !enraged or asleep:
 		return
-	rage_level -= effects["left_punch"]["cur"]
-	if rage_level <= 0:
-		rage_level = 0
-		rest()
-	calc_decay("left_punch")
+	perform("left_punch")
 
-func kick():
+func right_punch():
 	if !enraged or asleep:
 		return
-	rage_level -= effects["left_kick"]["cur"]
-	if rage_level <= 0:
-		rage_level = 0
-		rest()
-	calc_decay("left_kick")
+	perform("right_punch")
+
+func left_kick():
+	if !enraged or asleep:
+		return
+	perform("left_kick")
+
+func right_kick():
+	if !enraged or asleep:
+		return
+	perform("right_kick")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
