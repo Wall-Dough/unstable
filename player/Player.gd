@@ -144,7 +144,6 @@ func _process(delta):
 		victory_left -= delta
 		if victory_left <= 0:
 			get_tree().change_scene("res://victory/Victory.tscn")
-			pass
 		return
 	if combat_mode:
 		if Input.is_action_just_pressed("punch_left"):
