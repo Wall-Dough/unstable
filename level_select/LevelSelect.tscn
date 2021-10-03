@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://level_select/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://level/Level1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/Level2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/QuickLevel.tscn" type="PackedScene" id=4]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -11,7 +12,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-levels = [ ExtResource( 2 ), ExtResource( 3 ) ]
+levels = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
 
 [node name="level_list" type="ItemList" parent="."]
 margin_right = 1024.0
