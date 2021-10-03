@@ -8,6 +8,7 @@ export(int, 23) var start_hour = 17
 export(int, 59) var start_minute = 0
 export(int, 23) var bed_time_hour = 22
 export(int, 59) var bed_time_minute = 0
+export(PackedScene) var next_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,3 +43,9 @@ func set_combat_mode(combat_mode):
 
 func set_effectivenesses(effects):
 	$Controls.set_effectivenesses(effects)
+
+func advance_level():
+	if next_level == null:
+		get_tree().change_scene("res://victory/Victory.tscn")
+	else:
+		get_tree().change_scene_to(next_level)
