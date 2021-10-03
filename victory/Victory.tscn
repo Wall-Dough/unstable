@@ -25,14 +25,14 @@ script = ExtResource( 6 )
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="victory_text" type="Label" parent="."]
-margin_left = 184.115
 margin_top = 136.245
-margin_right = 859.115
+margin_right = 1024.0
 margin_bottom = 218.245
 rect_pivot_offset = Vector2( 329.984, 0.142136 )
 custom_fonts/font = SubResource( 1 )
 text = "nighty night"
 align = 1
+autowrap = true
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
