@@ -1,5 +1,6 @@
 extends Node2D
 
+signal bed_time
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -63,6 +64,7 @@ func rest():
 func sleep():
 	asleep = true
 	change_sprite($body/collision/sprite/asleep)
+	emit_signal("bed_time")
 
 func feed():
 	if enraged or asleep:

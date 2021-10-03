@@ -10,6 +10,9 @@ var combat_mode = false
 var near_monster = false
 var cooldown_time = 1
 var cooldown_left = 0
+var victory = false
+var victory_time = 5
+var victory_left = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,7 +42,7 @@ func walk():
 	change_sprite($body.get_walk_sprite())
 
 func pet():
-	if cooldown_left > 0:
+	if cooldown_left > 0 or victory:
 		return
 	change_sprite($body/collision/sprite/pet)
 	get_root().play_pet()
@@ -47,7 +50,7 @@ func pet():
 	cooldown_left = cooldown_time
 
 func give():
-	if cooldown_left > 0:
+	if cooldown_left > 0 or victory:
 		return
 	change_sprite($body/collision/sprite/give)
 	get_root().play_feed()
@@ -55,30 +58,40 @@ func give():
 	cooldown_left = cooldown_time
 
 func punch_left():
+	if victory:
+		return
 	change_sprite($body/collision/sprite/punch_left)
 	if near_monster:
 		get_root().play_hit_hurt()
 		get_monster().punch()
 
 func punch_right():
+	if victory:
+		return
 	change_sprite($body/collision/sprite/punch_right)
 	if near_monster:
 		get_root().play_hit_hurt()
 		get_monster().punch()
 
 func kick_left():
+	if victory:
+		return
 	change_sprite($body/collision/sprite/kick_left)
 	if near_monster:
 		get_root().play_hit_hurt()
 		get_monster().kick()
 
 func kick_right():
+	if victory:
+		return
 	change_sprite($body/collision/sprite/kick_right)
 	if near_monster:
 		get_root().play_hit_hurt()
 		get_monster().kick()
 
 func none_pressed():
+	if victory:
+		return true
 	if combat_mode:
 		if Input.is_action_pressed("punch_left"):
 			return false
@@ -124,6 +137,12 @@ func _process(delta):
 				walk()
 			else:
 				rest()
+	if victory:
+		victory_left -= delta
+		if victory_left <= 0:
+			get_tree().change_scene("res://victory/Victory.tscn")
+			pass
+		return
 	if combat_mode:
 		if Input.is_action_just_pressed("punch_left"):
 			punch_left()
@@ -149,3 +168,7 @@ func _on_player_detect_area_entered(area):
 func _on_player_detect_area_exited(area):
 	if area.get_name() == "monster_detect":
 		near_monster = false
+
+func _on_Monster_bed_time():
+	victory = true
+	victory_left = victory_time
