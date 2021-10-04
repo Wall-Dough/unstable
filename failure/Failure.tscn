@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://background/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/textures.png" type="Texture" id=3]
+[ext_resource path="res://failure/Failure.gd" type="Script" id=4]
+[ext_resource path="res://fonts/droid-sans/DroidSans.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -8,9 +12,18 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[node name="Failure" type="Node2D"]
+[sub_resource type="DynamicFont" id=2]
+size = 26
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Failure" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="failure_text" type="Label" parent="."]
 margin_top = 144.798
 margin_right = 1024.0
 margin_bottom = 226.798
@@ -20,3 +33,21 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="continue_text" type="Label" parent="."]
+margin_left = 317.149
+margin_top = 227.04
+margin_right = 715.149
+margin_bottom = 259.04
+custom_fonts/font = SubResource( 2 )
+text = "press enter to select another level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="failure" type="Polygon2D" parent="."]
+position = Vector2( 510.226, 445.242 )
+offset = Vector2( -788.737, -360.657 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 750, 310.169, 735.593, 385.593, 736.441, 408.475, 744.915, 477.119, 756.78, 480.508, 807.627, 472.034, 804.237, 422.881, 821.186, 436.441, 832.203, 418.644, 839.831, 359.322, 864.407, 306.78, 849.153, 275.424, 800, 273.729, 770.339, 300, 751.695, 300.847 )
+uv = PoolVector2Array( 750, 310.169, 735.593, 385.593, 736.441, 408.475, 744.915, 477.119, 756.78, 480.508, 807.627, 472.034, 804.237, 422.881, 821.186, 436.441, 832.203, 418.644, 839.831, 359.322, 864.407, 306.78, 849.153, 275.424, 800, 273.729, 770.339, 300, 751.695, 300.847 )
