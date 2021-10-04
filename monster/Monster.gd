@@ -129,6 +129,7 @@ func perform(action):
 		return
 	rage_level -= effects[action]["cur"]
 	if rage_level < 0:
+		rage_level = 0
 		unenrage()
 	calc_decay(action)
 
