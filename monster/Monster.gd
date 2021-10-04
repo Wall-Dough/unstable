@@ -9,6 +9,8 @@ var active_sprite
 var rage_level = 0
 var max_rage = 100
 var rage_speed = 20
+var superrage_speed = 20
+var superrage_level = 0
 var effectiveness = float(30)
 var enraged = false
 var asleep = false
@@ -90,6 +92,9 @@ func enrage():
 	get_root().set_combat_mode(true)
 	change_sprite($body/collision/sprite/enraged)
 
+func superenrage():
+	get_tree().change_scene("res://failure/Failure.tscn")
+
 func rest():
 	if asleep:
 		return
@@ -151,7 +156,13 @@ func right_kick():
 func _process(delta):
 	if asleep:
 		return
-	if !enraged:
+	if enraged:
+		superrage_level += delta * superrage_speed
+		if superrage_level >= max_rage:
+			superrage_level = max_rage
+			superenrage()
+	else:
+		superrage_level = 0
 		rage_level += delta * rage_speed
 		if rage_level >= max_rage:
 			rage_level = max_rage
@@ -159,7 +170,9 @@ func _process(delta):
 	rage_level = float(rage_level)
 	var max_rage_size = $body/max_rage.get_size().x
 	var rage_size = rage_level / max_rage * max_rage_size
+	var superrage_size = superrage_level / max_rage * max_rage_size
 	$body/max_rage/rage_level.rect_size.x = rage_size
+	$body/max_rage/superrage_level.rect_size.x = superrage_size
 	get_root().set_effectivenesses(effects)
 
 

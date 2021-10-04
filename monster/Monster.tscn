@@ -75,5 +75,16 @@ __meta__ = {
 margin_right = 100.0
 margin_bottom = 20.0
 color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="superrage_level" type="ColorRect" parent="body/max_rage"]
+margin_top = -10.0
+margin_right = 100.0
+color = Color( 0.780392, 0.0117647, 0.517647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="body" to="body" method="_on_body_body_entered"]
