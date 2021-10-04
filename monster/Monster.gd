@@ -61,17 +61,17 @@ func set_effect(effect, value):
 	effects[effect]["cur"] = value
 	effects[effect]["max"] = value
 
-func set_rage_speed(rage_speed):
-	self.rage_speed = rage_speed
+func set_rage_speed(new_rage_speed):
+	rage_speed = new_rage_speed
 
-func set_max_rage(max_rage):
-	self.max_rage = max_rage
+func set_max_rage(new_max_rage):
+	max_rage = new_max_rage
 
-func set_superrage_speed(superrage_speed):
-	self.superrage_speed = superrage_speed
+func set_superrage_speed(new_superrage_speed):
+	superrage_speed = new_superrage_speed
 
-func set_superrage_increase(superrage_increase):
-	self.superrage_increase = superrage_increase
+func set_superrage_increase(new_superrage_increase):
+	superrage_increase = new_superrage_increase
 
 func get_root():
 	return get_tree().get_current_scene()

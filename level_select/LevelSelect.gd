@@ -44,7 +44,6 @@ func _ready():
 				properties[property_name] = state.get_node_property_value(0, i)
 			if extras.has(property_name):
 				properties[property_name] = state.get_node_property_value(0, i)
-		var level_name = state.get_node_name(0)
 		var start_text = get_time_string(properties["start_hour"], properties["start_minute"])
 		start_text = "Start: %s" % start_text
 		var bed_time_text = get_time_string(properties["bed_time_hour"], properties["bed_time_minute"])
@@ -62,7 +61,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_down"):
 		cur_level_idx += 1
 		if cur_level_idx == level_idx.size():
@@ -74,6 +73,7 @@ func _process(delta):
 			cur_level_idx = level_idx.size() - 1
 		$level_list.select(level_idx[cur_level_idx])
 	elif Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene_to(levels[cur_level_idx])
+		if get_tree().change_scene_to(levels[cur_level_idx]) != OK:
+			print("Level select failed")
 	elif Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()

@@ -25,8 +25,8 @@ func _integrate_forces(s):
 		lv.x = 0
 	s.set_linear_velocity(lv)
 
-func set_moving(moving):
-	self.moving = moving
+func set_moving(new_moving):
+	moving = new_moving
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

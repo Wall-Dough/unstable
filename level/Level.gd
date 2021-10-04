@@ -67,9 +67,12 @@ func set_effectivenesses(effects):
 
 func advance_level():
 	if next_level == null:
-		get_tree().change_scene("res://victory/Victory.tscn")
+		if get_tree().change_scene("res://victory/Victory.tscn") != OK:
+			print("Failed to show victory screen")
 	else:
-		get_tree().change_scene_to(next_level)
+		if get_tree().change_scene_to(next_level) != OK:
+			print("Failed to continue to next level")
 
 func fail_level():
-	get_tree().change_scene("res://failure/Failure.tscn")
+	if get_tree().change_scene("res://failure/Failure.tscn") != OK:
+		print("Failed to show failure screen")

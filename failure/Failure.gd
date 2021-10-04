@@ -12,6 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_accept"):
-		get_tree().change_scene("res://level_select/LevelSelect.tscn")
+		if get_tree().change_scene("res://level_select/LevelSelect.tscn") != OK:
+			print("Failed to return to level select")

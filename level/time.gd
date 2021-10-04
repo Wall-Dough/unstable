@@ -25,7 +25,6 @@ func display_time():
 	var fixed_time = int(time) % max_time
 	var am_pm = "AM"
 	var hours = floor(fixed_time / 60)
-	var mil_hours = hours
 	if hours >= 12:
 		am_pm = "PM"
 	if hours == 0:
