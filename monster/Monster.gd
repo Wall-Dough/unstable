@@ -65,6 +65,12 @@ func set_rage_speed(rage_speed):
 func set_max_rage(max_rage):
 	self.max_rage = max_rage
 
+func set_superrage_speed(superrage_speed):
+	self.superrage_speed = superrage_speed
+
+func set_superrage_increase(superrage_increase):
+	self.superrage_increase = superrage_increase
+
 func get_root():
 	return get_tree().get_current_scene()
 

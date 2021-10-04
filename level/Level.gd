@@ -13,6 +13,8 @@ export(int, 30) var feed_effect = 30
 export(int, 30) var attack_effect = 10
 export(int, 40) var rage_speed = 20
 export(int, 200) var max_rage = 100
+export(int, 40) var superrage_speed = 20
+export(int, 20) var supperrage_increase = 5
 export(PackedScene) var next_level
 
 # Called when the node enters the scene tree for the first time.
