@@ -15,6 +15,7 @@ var superrage_level = 0
 var superrage_increase = 5
 var effectiveness = float(30)
 var enraged = false
+var superenraged = false
 var asleep = false
 var atk_factor = 3
 var effects = {
@@ -101,6 +102,14 @@ func enrage():
 	change_sprite($body/collision/sprite/enraged)
 
 func superenrage():
+	if superenraged:
+		return
+	superenraged = true
+	$body.set_collision_layer_bit(1, false)
+	$body.set_collision_layer_bit(2, true)
+	$body.set_collision_mask_bit(1, false)
+	$body.set_collision_mask_bit(2, true)
+	$body.speed *= 2
 	emit_signal("superrage")
 
 func rest():
