@@ -67,11 +67,13 @@ func _process(_delta):
 		if cur_level_idx == level_idx.size():
 			cur_level_idx = 0
 		$level_list.select(level_idx[cur_level_idx])
+		$level_list.ensure_current_is_visible()
 	elif Input.is_action_just_pressed("ui_up"):
 		cur_level_idx -= 1
 		if cur_level_idx < 0:
 			cur_level_idx = level_idx.size() - 1
 		$level_list.select(level_idx[cur_level_idx])
+		$level_list.ensure_current_is_visible()
 	elif Input.is_action_just_pressed("ui_accept"):
 		if get_tree().change_scene_to(levels[cur_level_idx]) != OK:
 			print("Level select failed")
