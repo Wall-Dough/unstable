@@ -12,6 +12,8 @@ var defaults = {
 	"bed_time_hour": 22,
 	"bed_time_minute": 0
 }
+var extras = ["pet_effect", "feed_effect", "attack_effect", "rage_speed",
+	"max_rage"]
 
 var level_idx = []
 var cur_level_idx = 0
@@ -39,6 +41,8 @@ func _ready():
 			var property_name = state.get_node_property_name(0, i)
 			if properties.has(property_name):
 				properties[property_name] = state.get_node_property_value(0, i)
+			if extras.has(property_name):
+				properties[property_name] = state.get_node_property_value(0, i)
 		var level_name = state.get_node_name(0)
 		var start_text = get_time_string(properties["start_hour"], properties["start_minute"])
 		start_text = "Start: %s" % start_text
@@ -48,6 +52,10 @@ func _ready():
 		$level_list.add_item(state.get_node_name(0), icon_texture)
 		$level_list.add_item(start_text, null, false)
 		$level_list.add_item(bed_time_text, null, false)
+		for extra in extras:
+			if properties.has(extra):
+				var extra_text = "%s: %d" % [extra.capitalize(), properties[extra]]
+				$level_list.add_item(extra_text, null, false)
 	$level_list.select(level_idx[cur_level_idx])
 
 
