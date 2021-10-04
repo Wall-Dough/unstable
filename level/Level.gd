@@ -15,6 +15,7 @@ export(int, 40) var rage_speed = 20
 export(int, 200) var max_rage = 100
 export(int, 40) var superrage_speed = 20
 export(int, 20) var superrage_increase = 5
+export(int, 200) var cooldown_percent = 100
 export(PackedScene) var next_level
 
 # Called when the node enters the scene tree for the first time.
@@ -33,6 +34,7 @@ func _ready():
 	$Monster.set_max_rage(max_rage)
 	$Monster.set_superrage_speed(superrage_speed)
 	$Monster.set_superrage_increase(superrage_increase)
+	$Player.set_cooldown_percent(cooldown_percent)
 
 func get_player():
 	return $Player

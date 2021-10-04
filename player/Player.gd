@@ -25,6 +25,9 @@ func get_root():
 func get_monster():
 	return get_root().get_monster()
 
+func set_cooldown_percent(cooldown_percent):
+	cooldown_time = cooldown_percent / 100
+
 func set_combat_mode(combat_mode):
 	self.combat_mode = combat_mode
 	if combat_mode:

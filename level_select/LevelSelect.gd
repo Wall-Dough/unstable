@@ -13,7 +13,7 @@ var defaults = {
 	"bed_time_minute": 0
 }
 var extras = ["pet_effect", "feed_effect", "attack_effect", "rage_speed",
-	"max_rage"]
+	"max_rage", "superrage_speed", "superrage_increase", "cooldown_percent"]
 
 var level_idx = []
 var cur_level_idx = 0

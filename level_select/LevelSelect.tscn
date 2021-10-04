@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://level_select/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://level/Level1.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://background/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/CombatOnly.tscn" type="PackedScene" id=7]
+[ext_resource path="res://level/Jank.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 88
@@ -21,7 +22,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-levels = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 7 ) ]
+levels = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
 
