@@ -4,6 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export(String) var description = ""
 export(int, 23) var start_hour = 17
 export(int, 59) var start_minute = 0
 export(int, 47) var bed_time_hour = 22

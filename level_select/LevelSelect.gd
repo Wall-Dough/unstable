@@ -7,6 +7,7 @@ export(Array, PackedScene) var levels
 # var a = 2
 # var b = "text"
 var defaults = {
+	"description": "Pet and feed the monster until it's time for bed.",
 	"start_hour": 17,
 	"start_minute": 0,
 	"bed_time_hour": 22,
@@ -50,6 +51,7 @@ func _ready():
 		bed_time_text = "Bed Time: %s" % bed_time_text
 		level_idx.append($level_list.get_item_count())
 		$level_list.add_item(state.get_node_name(0), icon_texture)
+		$level_list.add_item(properties["description"], null, false)
 		$level_list.add_item(start_text, null, false)
 		$level_list.add_item(bed_time_text, null, false)
 		for extra in extras:

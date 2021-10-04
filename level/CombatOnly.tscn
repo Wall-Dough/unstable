@@ -3,5 +3,6 @@
 [ext_resource path="res://level/Level.tscn" type="PackedScene" id=1]
 
 [node name="Combat Only" instance=ExtResource( 1 )]
+description = "Petting and feeding won't work on this guy. You'll have to wait until he gets angry and beat him up."
 pet_effect = 0
 feed_effect = 0

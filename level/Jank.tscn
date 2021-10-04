@@ -3,4 +3,5 @@
 [ext_resource path="res://level/Level.tscn" type="PackedScene" id=1]
 
 [node name="Jank" instance=ExtResource( 1 )]
+description = "No cooldown on petting and feeding. This is how it was at the very beginning. Fatten him up and pet him raw."
 cooldown_percent = 0
