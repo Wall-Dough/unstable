@@ -11,6 +11,7 @@ var max_rage = 100
 var rage_speed = 20
 var superrage_speed = 20
 var superrage_level = 0
+var superrage_increase = 5
 var effectiveness = float(30)
 var enraged = false
 var asleep = false
@@ -103,6 +104,13 @@ func rest():
 	get_root().set_combat_mode(false)
 	change_sprite($body/collision/sprite/rest)
 
+func unenrage():
+	if asleep or !enraged:
+		return
+	rage_level = 0
+	superrage_speed += superrage_increase
+	rest()
+
 func sleep():
 	if enraged or asleep:
 		return
@@ -115,8 +123,7 @@ func perform(action):
 		return
 	rage_level -= effects[action]["cur"]
 	if rage_level < 0:
-		rage_level = 0
-		rest()
+		unenrage()
 	calc_decay(action)
 
 func can_perform(action):
