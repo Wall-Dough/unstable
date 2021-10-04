@@ -21,6 +21,7 @@ export(PackedScene) var next_level
 func _ready():
 	randomize()
 	$time.set_time(start_hour, start_minute)
+	$bed_time.set_time(bed_time_hour, bed_time_minute)
 	$Monster.set_bed_time(bed_time_hour, bed_time_minute)
 	$Monster.set_effect("pet", pet_effect)
 	$Monster.set_effect("feed", feed_effect)

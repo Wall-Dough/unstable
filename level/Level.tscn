@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://monster/Monster.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://controls/Controls.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/droid-sans/DroidSans-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://level/time.gd" type="Script" id=7]
+[ext_resource path="res://level/bed_time.gd" type="Script" id=8]
 [ext_resource path="res://background/Background.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -73,9 +74,9 @@ margin_bottom = 52.981
 
 [node name="time" type="Control" parent="."]
 margin_left = 88.3044
-margin_top = 76.5305
+margin_top = 61.1271
 margin_right = 128.304
-margin_bottom = 116.53
+margin_bottom = 101.127
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -111,6 +112,53 @@ custom_fonts/font = SubResource( 3 )
 text = "00"
 
 [node name="am_pm" type="Label" parent="time"]
+margin_left = 132.474
+margin_top = 7.76224
+margin_right = 176.474
+margin_bottom = 55.7622
+custom_fonts/font = SubResource( 3 )
+text = "PM"
+
+[node name="bed_time" type="Control" parent="."]
+margin_left = 88.3044
+margin_top = 108.243
+margin_right = 128.304
+margin_bottom = 148.243
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hours" type="Label" parent="bed_time"]
+margin_left = 14.8272
+margin_top = 10.265
+margin_right = 58.8272
+margin_bottom = 58.265
+custom_fonts/font = SubResource( 3 )
+text = "17"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colon" type="Label" parent="bed_time"]
+margin_left = 49.7846
+margin_top = 6.33143
+margin_right = 89.7846
+margin_bottom = 54.3314
+custom_fonts/font = SubResource( 3 )
+text = ":"
+align = 1
+
+[node name="minutes" type="Label" parent="bed_time"]
+margin_left = 80.9635
+margin_top = 9.23398
+margin_right = 124.964
+margin_bottom = 57.234
+custom_fonts/font = SubResource( 3 )
+text = "00"
+
+[node name="am_pm" type="Label" parent="bed_time"]
 margin_left = 132.474
 margin_top = 7.76224
 margin_right = 176.474
