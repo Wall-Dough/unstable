@@ -3,3 +3,6 @@
 [ext_resource path="res://level/Level.tscn" type="PackedScene" id=1]
 
 [node name="Angry" instance=ExtResource( 1 )]
+description = "Angrier than normal. You'll probably have to mash a little harder."
+rage_speed = 30
+superrage_speed = 30
