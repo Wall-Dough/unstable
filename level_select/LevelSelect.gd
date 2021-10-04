@@ -31,8 +31,7 @@ func get_time_string(hour, minute):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var icon = Image.new()
-	icon.load("res://images/monster_icon_small.png")
+	var icon = load("res://images/monster_icon_small.png")
 	var icon_texture = ImageTexture.new()
 	icon_texture.create_from_image(icon)
 	for level in levels:
