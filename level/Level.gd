@@ -11,6 +11,8 @@ export(int, 59) var bed_time_minute = 0
 export(int, 30) var pet_effect = 30
 export(int, 30) var feed_effect = 30
 export(int, 30) var attack_effect = 10
+export(int, 40) var rage_speed = 20
+export(int, 200) var max_rage = 100
 export(PackedScene) var next_level
 
 # Called when the node enters the scene tree for the first time.

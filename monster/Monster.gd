@@ -55,7 +55,13 @@ func set_bed_time(hour, minute):
 func set_effect(effect, value):
 	effects[effect]["cur"] = value
 	effects[effect]["max"] = value
-	
+
+func set_rage_speed(rage_speed):
+	self.rage_speed = rage_speed
+
+func set_max_rage(max_rage):
+	self.max_rage = max_rage
+
 func get_root():
 	return get_tree().get_current_scene()
 
