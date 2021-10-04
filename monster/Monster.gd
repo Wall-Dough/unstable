@@ -1,6 +1,7 @@
 extends Node2D
 
 signal bed_time
+signal superrage
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -100,7 +101,7 @@ func enrage():
 	change_sprite($body/collision/sprite/enraged)
 
 func superenrage():
-	get_tree().change_scene("res://failure/Failure.tscn")
+	emit_signal("superrage")
 
 func rest():
 	if asleep:

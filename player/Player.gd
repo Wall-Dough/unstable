@@ -11,8 +11,11 @@ var near_monster = false
 var cooldown_time = 1
 var cooldown_left = 0
 var victory = false
+var failure = false
 var victory_time = 5
 var victory_left = 0
+var failure_time = 5
+var failure_left = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -146,6 +149,8 @@ func _process(delta):
 	else:
 		if victory:
 			rest_sprite = $body/collision/sprite/victory
+		elif failure:
+			rest_sprite = $body/collision/sprite/failure
 		else:
 			rest_sprite = $body/collision/sprite/rest
 		if none_pressed():
@@ -157,6 +162,11 @@ func _process(delta):
 		victory_left -= delta
 		if victory_left <= 0:
 			get_root().advance_level()
+		return
+	if failure:
+		failure_left -= delta
+		if failure_left <= 0:
+			get_root().fail_level()
 		return
 	if combat_mode:
 		if Input.is_action_just_pressed("punch_left"):
@@ -197,5 +207,14 @@ func _on_player_detect_area_exited(area):
 		near_monster = false
 
 func _on_Monster_bed_time():
+	if victory or failure:
+		return
 	victory = true
 	victory_left = victory_time
+
+
+func _on_Monster_superrage():
+	if victory or failure:
+		return
+	failure = true
+	failure_left = failure_time

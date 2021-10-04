@@ -70,3 +70,6 @@ func advance_level():
 		get_tree().change_scene("res://victory/Victory.tscn")
 	else:
 		get_tree().change_scene_to(next_level)
+
+func fail_level():
+	get_tree().change_scene("res://failure/Failure.tscn")

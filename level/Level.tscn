@@ -167,4 +167,5 @@ custom_fonts/font = SubResource( 3 )
 text = "PM"
 
 [connection signal="bed_time" from="Monster" to="Player" method="_on_Monster_bed_time"]
+[connection signal="superrage" from="Monster" to="Player" method="_on_Monster_superrage"]
 [connection signal="time_change" from="time" to="Monster" method="_on_time_time_change"]
